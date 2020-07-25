@@ -4,6 +4,7 @@ module Helpers
   def with_isolated_config
     original_config = RSpec.configuration
     RSpec.configuration = RSpec::Core::Configuration.new
+    RSpec.configuration.world = RSpec.world
     RSpec::Rails.initialize_configuration(RSpec.configuration)
     yield RSpec.configuration
   ensure
